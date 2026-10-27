@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Comunicado para Laura</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --space:#0B0F22; --paper:#F4F5F8; --ink:#1B2140; --soft:#5A6385;
+  --red:#C8453B; --blue:#2F4B9A;
+  color-scheme:dark;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{background:var(--space); scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0; min-height:100vh; background:var(--space); color:var(--ink);
+  font-family:"Newsreader",Georgia,"Times New Roman",serif;
+  font-size:1.15rem; line-height:1.8;
+  animation:rise 1.6s ease both;
+}
+@keyframes rise{from{opacity:0}to{opacity:1}}
+
+/* estrelas */
+.stars{position:fixed; inset:0; pointer-events:none; z-index:0}
+.stars::before,.stars::after{content:""; position:absolute; inset:0}
+.stars::before{
+  background-image:
+    radial-gradient(1px 1px at 8% 12%,#fff,transparent),
+    radial-gradient(1px 1px at 22% 68%,#cfd6ff,transparent),
+    radial-gradient(1.5px 1.5px at 35% 24%,#fff,transparent),
+    radial-gradient(1px 1px at 47% 86%,#fff,transparent),
+    radial-gradient(1px 1px at 58% 8%,#cfd6ff,transparent),
+    radial-gradient(1.5px 1.5px at 71% 52%,#fff,transparent),
+    radial-gradient(1px 1px at 83% 28%,#fff,transparent),
+    radial-gradient(1px 1px at 92% 76%,#cfd6ff,transparent),
+    radial-gradient(1px 1px at 14% 92%,#fff,transparent),
+    radial-gradient(1px 1px at 64% 94%,#fff,transparent),
+    radial-gradient(1px 1px at 4% 44%,#fff,transparent),
+    radial-gradient(1px 1px at 96% 10%,#fff,transparent);
+  opacity:.85;
+}
+.stars::after{
+  background-image:
+    radial-gradient(2px 2px at 17% 36%,#fff,transparent),
+    radial-gradient(2px 2px at 52% 58%,#ffe9bf,transparent),
+    radial-gradient(2px 2px at 78% 14%,#fff,transparent),
+    radial-gradient(2px 2px at 88% 62%,#fff,transparent),
+    radial-gradient(2px 2px at 28% 80%,#cfd6ff,transparent);
+  animation:twinkle 6s ease-in-out infinite alternate;
+}
+@keyframes twinkle{from{opacity:.25}to{opacity:1}}
+
+/* carta */
+main{position:relative; z-index:1; max-width:41rem; margin:0 auto; padding:2.5rem 1rem 4rem}
+.sheet{
+  position:relative; background:var(--paper);
+  padding:3.25rem 2.25rem 2.75rem;
+  box-shadow:0 0 0 1px rgba(255,255,255,.06), 0 24px 60px rgba(0,0,0,.55);
+}
+.sheet::before,.sheet::after{
+  content:""; position:absolute; left:0; right:0; height:8px;
+  background:repeating-linear-gradient(135deg,var(--red) 0 14px,var(--paper) 14px 22px,var(--blue) 22px 36px,var(--paper) 36px 44px);
+}
+.sheet::before{top:0}
+.sheet::after{bottom:0}
+
+.top{display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; margin-bottom:2.5rem}
+.via{color:var(--red); font-style:italic; font-size:1.05rem; margin:0}
+.date{color:var(--soft); font-size:1rem; margin:.15rem 0 0; line-height:1.5}
+
+.stamp{
+  position:relative; width:76px; height:92px; flex:none;
+  border:2px dashed var(--blue); padding:6px; background:#E7EAF3;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+}
+.stamp svg{width:100%; height:auto; display:block}
+.stamp .ring{fill:none; stroke:var(--blue); stroke-width:1.5; opacity:.45}
+.stamp .planet{fill:var(--blue)}
+.stamp .sat{fill:var(--red)}
+.stamp .spin{transform-origin:42px 42px; animation:spin 20s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.stamp span{font-size:.7rem; line-height:1; color:var(--blue); font-style:italic; margin-top:4px}
+.mark{
+  position:absolute; right:48px; top:70px; width:74px; height:74px; border-radius:50%;
+  border:2px solid rgba(200,69,59,.55); color:rgba(200,69,59,.65);
+  display:flex; align-items:center; justify-content:center; text-align:center;
+  font-size:.62rem; line-height:1.15; font-style:italic; transform:rotate(-14deg); pointer-events:none;
+}
+
+h1{font-size:2rem; font-weight:500; line-height:1.2; letter-spacing:-.01em; margin:0 0 2rem}
+p.body{margin:0 0 1.9rem; text-align:justify; hyphens:auto; -webkit-hyphens:auto}
+p.body em{color:var(--red)}
+.hi{margin:0 0 1.5rem}
+
+.sign{margin-top:2.5rem}
+.sign p{margin:0}
+.sign .name{font-family:"Caveat","Segoe Script",cursive; font-size:2.3rem; line-height:1.2; color:var(--blue); margin-top:.25rem}
+.aside{color:var(--soft); font-style:italic; font-size:1.02rem}
+.fim{color:var(--soft); font-style:italic; margin-bottom:1rem !important}
+.ps{color:var(--soft); font-style:italic; font-size:1.05rem; margin:2rem 0 0}
+
+@media (max-width:480px){
+  body{font-size:1.08rem}
+  .sheet{padding:2.75rem 1.4rem 2.5rem}
+  h1{font-size:1.7rem}
+  .mark{right:34px; width:66px; height:66px}
+}
+@media (prefers-reduced-motion: reduce){
+  body{animation:none}
+  .stars::after{animation:none; opacity:.7}
+  .stamp .spin{animation:none}
+}
+</style>
+</head>
+<body>
+<div class="stars" aria-hidden="true"></div>
+<main>
+  <article class="sheet">
+    <div class="top">
+      <div>
+        <p class="via">Via aérea</p>
+        <p class="date">Órbita terrestre,<br>outubro de 2026</p>
+      </div>
+      <div class="stamp" aria-hidden="true">
+        <svg viewBox="0 0 84 84">
+          <circle class="ring" cx="42" cy="42" r="32"/>
+          <circle class="planet" cx="42" cy="42" r="8"/>
+          <g class="spin"><circle class="sat" cx="42" cy="10" r="4.5"/></g>
+        </svg>
+        <span>Câmbio</span>
+      </div>
+      <div class="mark" aria-hidden="true">Sinal<br>enviado<br>órbita</div>
+    </div>
+
+    <h1>Comunicado para Laura</h1>
+
+    <p class="hi">Laura,</p>
+
+    <p class="body">Espero que este comunicado chegue até você inteiro, sem perder o sinal pelo caminho. Escrevo de dentro da minha nave, com a suspeita de que nós dois somos astronautas: cada um na sua cápsula, flutuando num pedaço de silêncio, olhando para o mesmo céu e fingindo que está tudo sob controle. Eu, pelo menos, finjo. Sempre tive medo do espaço. Do tamanho dele, do escuro, da possibilidade de me soltar e não ter para onde voltar. Durante muito tempo mantive os pés no chão e os olhos baixos, como quem prefere não encarar aquilo que não consegue medir.</p>
+
+    <p class="body">Mas ando aprendendo com ele. O espaço me ensinou que o vazio não é só ausência: cabe nele muita coisa, inclusive recomeço. Eu me perdi, sim. Perdi o norte, a referência, o sinal do rádio por um bom tempo, e fui parar em lugares onde não havia mapa para consultar. Foi justamente ali, à deriva, que me <em>encontrei</em>. Percebi que se perder também faz parte da missão, e que às vezes é preciso ficar longe de tudo para descobrir de que lado fica a Terra e para onde vale a pena apontar a nave.</p>
+
+    <p class="body">E aí tem você, que me parece uma astronauta experiente, dessas que já deram muitas voltas, atravessaram alguma tempestade solar e aprenderam a manter a calma quando tudo gira ao redor. Tem uma serenidade que só quem já voltou de longe costuma ter, e confesso que isso me deixou curioso. Por isso escrevo: quero trocar comunicados com você assim que for possível. Sem pressa de pouso e sem protocolo, só sinal indo e voltando, como duas naves que se cruzam e decidem desacelerar um pouco para conversar. Quem sabe a gente descobre que rota é essa.</p>
+
+    <div class="sign">
+      <p>Com carinho,</p>
+      <p class="name">Astronauta Felipe</p>
+    </div>
+  </article>
+</main>
+</body>
+</html>
